@@ -1,3 +1,5 @@
+from fastapi import UploadFile, File
+
 """_summary_
     Metadata of the file, when it's upload to the filesystem
     
@@ -18,5 +20,5 @@ class Metadata:
     """_summary_
         Initialization of the metadata class with validation
     """    
-    def __init__() -> None:
+    def __init__(self: UploadFile = File(...)) -> None:
         pass
