@@ -25,6 +25,7 @@ class DataBase:
         except Exception as error:
             print("Something went wrong")
             print(error)
+            
     """_summary_
         post(metadata: Metadata) - post into database metadata of the file, Metadata - class in metadata.py
     """     

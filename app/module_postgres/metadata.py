@@ -16,7 +16,7 @@ class Metadata:
     uuid: int
     
     """_summary_
-        Initialization of the metadata class
+        Initialization of the metadata class with validation
     """    
     def __init__() -> None:
         pass
