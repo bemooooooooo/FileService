@@ -1,3 +1,4 @@
 pytest
 fastapi
-sqlalchemy
+psycopg2
+python-dotenv
