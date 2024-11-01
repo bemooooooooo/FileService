@@ -22,6 +22,7 @@ class DataBase:
                                     user=os.getenv("DATABASE_USER"),
                                     password=os.getenv("DATABASE_PASSWORD"))
             self.cursor = self.connection.cursor()
+            self.connection.autocommit = True
         except Exception as error:
             print("Something went wrong")
             print(error)
@@ -30,8 +31,15 @@ class DataBase:
         post(metadata: Metadata) - post into database metadata of the file, Metadata - class in metadata.py
     """     
     def post(self, metadata: Metadata) -> int:
-        pass
-    
+        try:
+            self.cursor.execute(''''INSERT INTO file (owner_id, file_name, file_size, uuid, create_at) VALUES (%s, %s, %s, %s, %s)''', 
+                            (metadata.owner, metadata.name, metadata.size, metadata.uuid, metadata.create))
+        except:
+            print("Cannot insert metadata")
+            return 503
+        return 200
+        
+        
     """_summary_
         get(name: str) - get url to file with name
     """    
