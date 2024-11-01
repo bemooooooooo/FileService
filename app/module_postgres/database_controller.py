@@ -34,14 +34,21 @@ class DataBase:
         try:
             self.cursor.execute(''''INSERT INTO file (owner_id, file_name, file_size, uuid, create_at) VALUES (%s, %s, %s, %s, %s)''', 
                             (metadata.owner, metadata.name, metadata.size, metadata.uuid, metadata.create))
+            return 200
         except:
             print("Cannot insert metadata")
             return 503
-        return 200
         
         
     """_summary_
         get(name: str) - get url to file with name
     """    
-    def get(name: str) -> str:
-        pass
+    def get(self, name: str) -> str | int:
+        try:
+            self.cursor.execute('''SELECT uuid FROM file WHERE file_name = %s''', (name))
+            data = self.cursor.fetchall()
+            return data
+        except:
+            print("Cannot get metadata")
+            return 503
+        
