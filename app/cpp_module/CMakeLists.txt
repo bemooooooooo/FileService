@@ -8,5 +8,7 @@ find_package(Drogon REQUIRED)
 
 add_executable(StartPoint main.cpp)
 
-target_link_libraries(StartPoint PRIVATE libcpp)
-target_link_libraries(StartPoint PRIVATE Drogon::Drogon)
+add_subdirectory(objects)
+add_subdirectory(controllers)
+
+target_link_libraries(StartPoint PRIVATE FileController Drogon::Drogon)
