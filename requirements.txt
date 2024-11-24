@@ -1,4 +1,0 @@
-pytest
-fastapi
-psycopg2
-python-dotenv

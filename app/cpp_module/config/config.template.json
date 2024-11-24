@@ -1,0 +1,31 @@
+{
+    "listeners": [
+        {
+            "address": "0.0.0.0",
+            "port": 3000,
+            "https": false
+        }
+    ],
+    "app": {
+        "number_of_threads": 4,
+        "document_root": "./storage",
+        "upload_path": "./storage/tmp",
+        "file_types": ["*"],
+        "max_connections": 100000,
+        "max_body_size": 68428800,
+        "jwt_secret": "your_secret_key_here"
+    },
+    "db_clients": [
+        {
+            "name": "default",
+            "rdbms": "postgresql",
+            "host": "localhost",
+            "port": 5432,
+            "dbname": "fileservice",
+            "user": "postgres",
+            "passwd": "postgres",
+            "connection_number": 8,
+            "is_fast": false
+        }
+    ]
+}
