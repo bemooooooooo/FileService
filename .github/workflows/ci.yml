@@ -2,9 +2,9 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main, cpp_version ]
   pull_request:
-    branches: [ main, develop ]
+    branches: [ main, cpp_version ]
 
 env:
   BUILD_TYPE: Release
